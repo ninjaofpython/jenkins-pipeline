@@ -1,13 +1,10 @@
 pipeline {
-  agent any
+  agent { docker { image 'mcr.microsoft.com/playwright:focal'}}
   stages {
-    stage('Build'){
+    stage('e2e-tests'){
       steps {
-        sh 'echo "Hello World"'
-        sh '''
-            echo "Multiline shell steps works also."
-            ls -lah
-           '''
+        sh 'npm install'
+        sh 'npm run test'
       }
     }
   }
