@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage("build") {
         steps {
-            echo 'Building the application'
-      
+            echo 'Building the application'      
         } 
       }
     stage("test"){
@@ -20,14 +19,5 @@ pipeline {
                   echo test
               }
           }
-        }
-    
-      always {
-          // Always executed like sending an email about the build condition
-          echo "I'm in the always block"
-        }
-      success {
-        
-        }
-    }
-}
+      }
+  }
