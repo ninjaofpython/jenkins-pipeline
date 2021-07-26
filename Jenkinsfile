@@ -21,7 +21,7 @@ pipeline {
               }
           }
         }
-    post {
+    
       always {
           // Always executed like sending an email about the build condition
           echo "I'm in the always block"
