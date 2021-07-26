@@ -1,12 +1,18 @@
 pipeline {
-  agent { 
-      docker { image 'node:14-alpine'}
-  }
+  agent any 
   stages {
-      stage('Test'){
+    stage("build") {
         steps {
-            sh 'node --version'
+      
+        } 
       }
-    }
-  }
+    stage("test"){
+        steps {
+        }
+      }
+    stage("deploy_schmoney"){
+        steps {
+        }
+      }
+   }
 }
