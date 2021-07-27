@@ -28,7 +28,7 @@ pipeline {
         stage("Deploying Schmoney"){
           when {
               expression {
-                  params.executeTests
+                  params.executeTests == true
               }
           }
           steps {
