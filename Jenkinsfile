@@ -8,9 +8,14 @@ pipeline {
               }
             }
         stage("test"){
+            when {
+                expression {
+                  BRANCH_NAME == 'main'|| BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 echo 'Testing the application'
-          }
+            }
         }
         stage("Deploying Schmoney"){
           steps {
