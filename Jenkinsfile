@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any 
     parameters {
@@ -8,12 +9,20 @@ pipeline {
         NEW_VERSION = '2.0.0'
     }
         stages {
+            stage("init") {
+              steps {
+                  script {
+                      gv = load "script.groovy"
+                  }
+                }
+            }
             stage("build") {
               steps {
-                  echo 'Building the application'
-                  echo "Building version ${NEW_VERSION}"
-              }
+                  script {
+                    gv.buildApp()
+                }
             }
+        }
         stage("test"){
             when {
                 expression {
